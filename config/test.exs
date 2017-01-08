@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :voorkanter, Voorkanter.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("PG_USERNAME"),
+  password: System.get_env("PG_PASSWORD"),
+  hostname: System.get_env("PG_HOST"),
   database: "voorkanter_test",
-  hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
