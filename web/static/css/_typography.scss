@@ -1,0 +1,18 @@
+
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  margin: 0;
+  color: $blue;
+  font-size: rem(18);
+  font-weight: 600;
+}
+
+@mixin body {
+  color: #312D38;
+  font-size: rem(14);
+  line-height: 24px;
+  margin: 0;
+}
