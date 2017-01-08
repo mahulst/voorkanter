@@ -1,3 +1,4 @@
+
 <div class="work-experience-timeline">
     <div class="timeline-block top">
         <div class="line">
@@ -5,41 +6,40 @@
         </div>
         <div class="content">
             <span>
-                <h2 class="function-name">Uw project ?</h2>
+                <h2 class="function-name">Your project ?</h2>
             </span>
         </div>
     </div>
     <div>
-        <div class="timeline-block">
-            <div class="line">
-                <h2 class="current-job">Nu</h2>
-            </div>
-            <div class="content">
-                <div class="experience">
-                    <h2 class="function-name">Full Stack Developer</h2>
-                    <p class="p location">De Persgroep, Amsterdam</p>
-                    <p class="p time">Juni 2016 - Juli 2017 (12 maanden)</p>
-                    <p class="p summary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
-                    <div class="tags">
-                        <span class="tag">CSS</span>
-                        <span class="tag">HTML</span>
-                        <span class="tag">PHP</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
-                        <span class="tag">Angular2</span>
+        <%= for experience <- @timeline do %>
+            <div class="timeline-block">
+                <div class="line">
+                    <h2 class="current-job">
+                        <%= if experience.end do %>
+                        <%= format_date_short experience.end %>
+                        <%= else %>
+                        Now
+                        <% end %>
+                    </h2>
+                </div>
+                <div class="content">
+                    <div class="experience">
+                        <h2 class="function-name"><%= experience.job_title %></h2>
+                        <p class="p location"><%= experience.company %>, <%= experience.location %></p>
+                        <p class="p time"><%= format_date experience.start %> -
+                            <%= if experience.end do %>
+                                <%= format_date experience.end %>
+                            <%= else %>
+                                now
+                            <% end %>
+                        </p>
+                        <p class="p summary">
+                            <%= experience.description %>
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
+        <% end %>
         <div class="timeline-block">
             <h2 class="line">
                 Juni 2016
